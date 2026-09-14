@@ -48,6 +48,13 @@ export type Pick = {
   created_at: string;
 };
 
+export type HallOfFameEntry = {
+  id: string;
+  season: string;
+  winner_profile_id: string;
+  created_at: string;
+};
+
 export type RosterRow = {
   league_id: string;
   profile_id: string;
@@ -98,6 +105,12 @@ export type Database = {
         Row: Pick;
         Insert: { league_id: string; player_id: string };
         Update: Partial<Pick>;
+        Relationships: [];
+      };
+      hall_of_fame: {
+        Row: HallOfFameEntry;
+        Insert: { season: string; winner_profile_id: string };
+        Update: Partial<HallOfFameEntry>;
         Relationships: [];
       };
     };

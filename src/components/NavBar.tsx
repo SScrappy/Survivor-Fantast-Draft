@@ -20,6 +20,9 @@ export default async function NavBar() {
               <Link href="/dashboard" className="text-sm text-neutral-600 hover:text-neutral-900">
                 My Leagues
               </Link>
+              <Link href="/hall-of-fame" className="text-sm text-neutral-600 hover:text-neutral-900">
+                Hall of Fame
+              </Link>
               <SignOutButton />
             </>
           ) : (
