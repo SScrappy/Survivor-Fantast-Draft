@@ -127,3 +127,14 @@ export async function startDraft(leagueId: string) {
 
   redirect(`/leagues/${leagueId}/draft`);
 }
+
+export async function setPlayerPlacement(leagueId: string, playerId: string, placement: number | null) {
+  const supabase = await createClient();
+  const { error } = await supabase.rpc("set_player_placement", {
+    p_player_id: playerId,
+    p_placement: placement,
+  });
+
+  revalidatePath(`/leagues/${leagueId}/rosters`);
+  return { error: error?.message ?? null };
+}

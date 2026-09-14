@@ -34,6 +34,7 @@ export type Player = {
   tribe: string | null;
   photo_url: string | null;
   bio: string | null;
+  placement: number | null;
   created_at: string;
 };
 
@@ -57,6 +58,8 @@ export type RosterRow = {
   player_name: string;
   tribe: string | null;
   photo_url: string | null;
+  placement: number | null;
+  points: number;
 };
 
 export type Database = {
@@ -122,6 +125,10 @@ export type Database = {
           p_league_id: string;
           p_assignments: { member_id: string; position: number }[];
         };
+        Returns: undefined;
+      };
+      set_player_placement: {
+        Args: { p_player_id: string; p_placement: number | null };
         Returns: undefined;
       };
     };

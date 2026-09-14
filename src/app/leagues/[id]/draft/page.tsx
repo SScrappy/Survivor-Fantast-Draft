@@ -34,7 +34,7 @@ export default async function DraftPage({ params }: { params: Promise<{ id: stri
 
   const { data: players } = await supabase
     .from("players")
-    .select("id, name, season, tribe, photo_url, bio, created_at")
+    .select("id, name, season, tribe, photo_url, bio, placement, created_at")
     .eq("season", league.season)
     .order("name", { ascending: true });
 
